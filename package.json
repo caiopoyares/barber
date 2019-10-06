@@ -1,0 +1,17 @@
+{
+  "name": "barber",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Caio Macbook <capoyares@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.0"
+  }
+}
