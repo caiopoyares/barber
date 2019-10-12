@@ -5,10 +5,13 @@
   "author": "Caio Macbook <capoyares@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "build:styles": "sass src/assets/sass/index.scss public/styles.css",
+    "watch:styles": "sass --watch src/assets/sass/index.scss src/public/styles.css"
   },
   "devDependencies": {
     "nodemon": "^1.19.3",
+    "sass": "^1.23.0",
     "sequelize-cli": "^5.5.1"
   },
   "dependencies": {
