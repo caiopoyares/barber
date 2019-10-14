@@ -1,23 +1,30 @@
-{% extends "_layouts/auth.njk" %}
-{% block body %}
-  <div class="signup-form" action="/signup" method="post">
-    <label for="avatar">
-      <img src="/images/avatar.svg" height="24"/>
-    </label>
+{% extends "_layouts/auth.njk" %} {% block body %}
+<form class="signup-form" action="/signup" method="post">
+  <label for="avatar">
+    <div class="profile-img-box">
+      <img class="profile-img" src="/images/avatar.svg" width="100" />
+    </div>
+  </label>
 
-    <input id="avatar" name="avatar" type="file"/>
+  <input id="avatar" name="avatar" type="file" />
 
-    <input type="text" name="name" placeholder="Nome completo">
-    <input type="email" name="email" placeholder="Seu e-mail">
-    <input type="password" name="password" placeholder="Senha">
+  <input type="text" name="name" placeholder="Nome completo" />
+  <input type="email" name="email" placeholder="Seu e-mail" />
+  <input type="password" name="password" placeholder="Senha" />
 
-    <label for="provider">
-      <input type="checkbox" name="provider" id="provider" value="1">
-      Sou cabelereiro
-    </label>
+  <label for="provider">
+    <input type="checkbox" name="provider" id="provider" value="1" />
+    Sou cabelereiro
+  </label>
 
-    <button type="submit">Criar conta</button>
-    <a href="/">Já possuo conta</a>
-
-  </div>
+  <button type="submit">Criar conta</button>
+  <a href="/">Já possuo conta</a>
+</form>
+<script>
+  const avatarInput = document.getElementById("avatar");
+  const ProfileImg = document.querySelector(".profile-img");
+  avatarInput.addEventListener("change", e => {
+    ProfileImg.src = URL.createObjectURL(e.target.files[0]);
+  });
+</script>
 {% endblock %}
