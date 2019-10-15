@@ -1,5 +1,10 @@
 {% extends "_layouts/auth.njk" %} {% block body %}
-<form class="signup-form" action="/signup" method="post">
+<form
+  class="signup-form"
+  action="/signup"
+  method="post"
+  enctype="multipart/form-data"
+>
   <label for="avatar">
     <div class="profile-img-box">
       <img class="profile-img" src="/images/avatar.svg" width="100" />
