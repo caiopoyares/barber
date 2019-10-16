@@ -6,9 +6,28 @@ class UserController {
   }
 
   async store(req, res) {
+    const { name, email, password } = req.body;
+
+    if (!req.file) {
+      req.flash("error", "Necessário adicionar uma foto de avatar.");
+      res.redirect("/signup");
+    }
     const { filename: avatar } = req.file;
-    const user = await User.create({ ...req.body, avatar });
-    console.log(user);
+
+    if (!name) {
+      req.flash("error", "Por favor, adicione seu nome.");
+      res.redirect("/signup");
+    }
+    if (!email) {
+      req.flash("error", "E-mail necessário para cadastro.");
+      res.redirect("/signup");
+    }
+    if (!password) {
+      req.flash("error", "Adicione uma senha.");
+      res.redirect("/signup");
+    }
+
+    await User.create({ ...req.body, avatar });
 
     return res.redirect("/");
   }

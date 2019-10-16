@@ -5,6 +5,12 @@
   action="/signin"
   method="post"
 >
+  <div style="text-align: center; margin-bottom: 1rem">
+    <h2>LOGIN</h2>
+
+    {% include "_partials/flash.njk" %}
+  </div>
+
   <input type="email" name="email" placeholder="Seu e-mail" />
   <input type="password" name="password" placeholder="Senha" />
 
