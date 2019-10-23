@@ -3,7 +3,7 @@ const { User } = require("../models");
 class Dashboard {
   async index(req, res) {
     const providers = await User.findAll({
-      attributes: ["name", "email", "provider", "avatar"],
+      attributes: ["name", "email", "provider", "avatar", "id"],
       where: { provider: true },
       raw: true
     });
