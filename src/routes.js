@@ -12,6 +12,7 @@ const UserController = require("./app/controllers/UserController");
 const DashboardController = require("./app/controllers/DashboardController");
 const FileController = require("./app/controllers/FileController");
 const AppointmentController = require("./app/controllers/AppointmentsController");
+const AvailableController = require("./app/controllers/AvailableController");
 const ErrorController = require("../src/app/controllers/ErrorController");
 
 routes.use((req, res, next) => {
@@ -37,6 +38,7 @@ routes.get("/app/dashboard", DashboardController.index);
 
 // APPOINTMENT CONTROLLER
 routes.get("/app/appointments/new/:providerId", AppointmentController.create);
+routes.get("/app/available/:provider", AvailableController.index);
 
 // ERROR 404
 routes.use("/", ErrorController.index);

@@ -28,7 +28,16 @@
 <script>
   flatpickr(".flatpicker", {
     minDate: new Date(),
-    dateFormat: "d/m/Y"
+    dateFormat: "d/m/Y",
+    onChange: function(date) {
+      fetch(`/app/available/{{ provider.id }}?date=${date[0].getTime()}`).then(
+        response => {
+          response.text().then(function(html) {
+            document.getElementById("hours").innerHTML = html;
+          });
+        }
+      );
+    }
   });
 </script>
 {% endblock %}

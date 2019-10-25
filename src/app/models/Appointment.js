@@ -4,7 +4,9 @@ module.exports = (sequelize, DataTypes) => {
     {
       date: DataTypes.DATE
     },
-    {}
+    {
+      timestamps: false
+    }
   );
   Appointment.associate = function(models) {
     // associations can be defined here
